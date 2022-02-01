@@ -8,7 +8,8 @@ class PostsController < ApplicationController
   # end
 
   def create
-    Post.create(content: params[:content])
-    redirect_to action: :index #投稿後にトップページにリダイレクトされる
+    post = Post.create(content: params[:content])
+    # redirect_to action: :index #投稿後にトップページにリダイレクトされる→編集
+    render json:{ post: post }
   end
 end
